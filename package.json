@@ -2,7 +2,7 @@
   "name": "appium-uiautomator",
   "version": "0.0.0",
   "description": "appium-uiautomator ==========",
-  "main": "index.js",
+  "main": "lib/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/appium/appium-uiautomator/issues"
   },
-  "homepage": "https://github.com/appium/appium-uiautomator"
+  "homepage": "https://github.com/appium/appium-uiautomator",
+  "dependencies": {
+    "underscore": "~1.6.0",
+    "winston": "~0.7.2"
+  }
 }
