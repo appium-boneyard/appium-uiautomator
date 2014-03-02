@@ -1,19 +1,19 @@
 {
-  "name": "appium-adb",
+  "name": "appium-uiautomator",
   "version": "0.0.0",
-  "description": "appium-adb ==========",
+  "description": "appium-uiautomator ==========",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/appium/appium-adb.git"
+    "url": "git://github.com/appium/appium-uiautomator.git"
   },
   "author": "",
   "license": "LICENCE",
   "bugs": {
-    "url": "https://github.com/appium/appium-adb/issues"
+    "url": "https://github.com/appium/appium-uiautomator/issues"
   },
-  "homepage": "https://github.com/appium/appium-adb"
+  "homepage": "https://github.com/appium/appium-uiautomator"
 }
