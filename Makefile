@@ -1,7 +1,10 @@
 current_dir = $(shell pwd)
 xcode_path:="$(shell xcode-select -print-path | sed s/\\/Contents\\/Developer//g)"
 
-DEFAULT: clean build
+DEFAULT: jshint clean build
+
+jshint:
+	jshint lib
 
 clean: 
 	cd bootstrap && ant clean
@@ -11,4 +14,6 @@ build:
 
 .PHONY: \
 	DEFAULT \
+	jshint \
+	clean \
 	build
