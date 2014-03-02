@@ -1,4 +1,4 @@
-appium-adb
+appium-uiautomator
 ==========
 
 Android uiautomator driver used by Appium 
