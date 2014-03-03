@@ -1,19 +1,16 @@
 current_dir = $(shell pwd)
 xcode_path:="$(shell xcode-select -print-path | sed s/\\/Contents\\/Developer//g)"
 
-DEFAULT: jshint clean build
+DEFAULT: jshint build
 
 jshint:
 	jshint lib
 
-clean: 
-	cd bootstrap && ant clean
-
 build: 
-	cd bootstrap && ant build
+	cd bootstrap && android create uitest-project -n AppiumBootstrap -t android-18 -p .
+	cd bootstrap && ant clean build
 
 .PHONY: \
 	DEFAULT \
 	jshint \
-	clean \
 	build
