@@ -1,6 +1,6 @@
 {
   "name": "appium-uiautomator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "appium-uiautomator ==========",
   "main": "lib/main.js",
   "scripts": {
