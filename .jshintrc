@@ -8,5 +8,7 @@
   "eqeqeq": true,
   "trailing": true,
   "white": true,
-  "indent": 2    
+  "indent": 2,
+  "esnext": true,
+  "experimental": ["asyncawait"]
 }
