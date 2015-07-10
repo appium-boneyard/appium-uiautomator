@@ -3,7 +3,7 @@
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import 'mochawait';
-import UiAutomator from '../../lib/uiautomator.js';
+import UiAutomator from '../../index';
 import path from 'path';
 import ADB from 'appium-adb';
 
@@ -20,11 +20,7 @@ describe('UiAutomator', function () {
     uiAutomator = new UiAutomator(adb);
   });
   it("should start and shutdown uiAutomator", async () => {
-    let startDetector = (stdout) => {
-      if (/Appium Socket Server Ready/.test(stdout)) {
-           return true;
-      }
-    };
+    let startDetector = (s) => { return /Appium Socket Server Ready/.test(s); };
     await uiAutomator.start(bootstrapJar, 'io.appium.android.bootstrap.Bootstrap',
                             null, startDetector);
     uiAutomator.state.should.eql('online');

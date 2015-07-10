@@ -3,7 +3,7 @@
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import 'mochawait';
-import UiAutomator from '../../lib/uiautomator.js';
+import UiAutomator from '../../index';
 import path from 'path';
 import ADB from 'appium-adb';
 import { withSandbox } from 'appium-test-support';
@@ -19,16 +19,16 @@ describe('UiAutomator', function () {
                              process.env.NO_PRECOMPILE ? '../..' : '../../..');
   const bootstrapJar = path.resolve(rootDir, 'test', 'fixtures', 'AppiumBootstrap.jar'),
         bootstrapClassName = 'io.appium.android.bootstrap.Bootstrap';
-  before(async () => {
+  before(() => {
     uiAutomator = new UiAutomator(adb);
   });
-  it("parseJarNameFromPath should parse jarName from path", async () => {
+  it("parseJarNameFromPath should parse jarName from path and windows path", () => {
     uiAutomator.parseJarNameFromPath(bootstrapJar).should.equal('AppiumBootstrap.jar');
     let windowsJarName = `C:\\\\appium\\bar.jar`;
     uiAutomator.parseJarNameFromPath(windowsJarName).should.equal('bar.jar');
   });
   it("parseJarNameFromPath should throw error for invalid path", async () => {
-    () => { uiAutomator.parseJarNameFromPath('foo/bar'); }.should.throw();
+    () => { uiAutomator.parseJarNameFromPath('foo/bar'); }.should.throw(/Unable to parse/);
   });
   describe("start", withSandbox({mocks: {adb, teen_process}}, (S) => {
     it("should return a subProcess", async function () {

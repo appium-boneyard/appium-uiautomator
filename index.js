@@ -1,3 +1,3 @@
-import { UiAutomator } from './lib/uiautomator';
+import UiAutomator from './lib/uiautomator';
 
-export { UiAutomator };
+export default UiAutomator;
