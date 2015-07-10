@@ -22,7 +22,7 @@ describe('UiAutomator', function () {
   it("should start and shutdown uiAutomator", async () => {
     let startDetector = (s) => { return /Appium Socket Server Ready/.test(s); };
     await uiAutomator.start(bootstrapJar, 'io.appium.android.bootstrap.Bootstrap',
-                            null, startDetector);
+                            startDetector, '-e', 'disableAndroidWatchers', true);
     uiAutomator.state.should.eql('online');
     await uiAutomator.shutdown();
     uiAutomator.state.should.eql('stopped');
