@@ -22,6 +22,9 @@ describe('UiAutomator', function () {
   before(() => {
     uiAutomator = new UiAutomator(adb);
   });
+  it('should throw an error if adb is not passed', () => {
+    () => { new UiAutomator(); }.should.throw(/adb is required/);
+  });
   it("parseJarNameFromPath should parse jarName from path and windows path", () => {
     uiAutomator.parseJarNameFromPath(bootstrapJar).should.equal('AppiumBootstrap.jar');
     let windowsJarName = `C:\\\\appium\\bar.jar`;
