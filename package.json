@@ -2,13 +2,15 @@
   "name": "appium-uiautomator",
   "version": "0.0.4",
   "description": "appium-uiautomator",
-  "main": "lib/main.js",
+  "main": "./build/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "./node_modules/.bin/gulp prepublish",
+    "test": "./node_modules/.bin/gulp once",
+    "watch": "./node_modules/.bin/gulp"
   },
   "repository": {
-    "type": "git",
-    "url": "https://github.com/appium/appium-uiautomator.git"
+    "type": "apache-2.0",
+    "url": "https://raw.github.com/appium/appium/master/LICENSE"
   },
   "author": "",
   "licenses": [
@@ -20,9 +22,23 @@
   "bugs": {
     "url": "https://github.com/appium/appium-uiautomator/issues"
   },
+  "engines": [
+    "node"
+  ],
   "homepage": "https://github.com/appium/appium-uiautomator",
   "dependencies": {
-    "underscore": "~1.6.0",
-    "winston": "~0.7.2"
+    "appium-adb": "^2.0.0-beta4",
+    "appium-logger": "^1.0.0",
+    "babel-runtime": "=5.5.5",
+    "teen_process": "^1.2.2"
+  },
+  "devDependencies": {
+    "appium-gulp-plugins": "^1.1.1",
+    "appium-test-support": "0.0.5",
+    "chai": "^2.3.0",
+    "chai-as-promised": "^5.0.0",
+    "gulp": "^3.8.11",
+    "mocha": "^2.2.1",
+    "mochawait": "^2.0.0"
   }
 }
