@@ -1,6 +1,6 @@
 {
   "name": "appium-uiautomator",
-  "version": "0.0.4",
+  "version": "0.0.5-beta",
   "description": "appium-uiautomator",
   "main": "./build/index.js",
   "scripts": {
