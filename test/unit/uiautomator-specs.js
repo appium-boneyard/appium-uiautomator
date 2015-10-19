@@ -2,13 +2,13 @@
 
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
-import 'mochawait';
-import UiAutomator from '../../index';
+import UiAutomator from '../..';
 import path from 'path';
 import ADB from 'appium-adb';
 import { withSandbox } from 'appium-test-support';
 import * as teen_process from 'teen_process';
 import events from 'events';
+
 
 chai.should();
 chai.use(chaiAsPromised);
@@ -22,6 +22,7 @@ describe('UiAutomator', function () {
   before(() => {
     uiAutomator = new UiAutomator(adb);
   });
+
   it('should throw an error if adb is not passed', () => {
     () => { new UiAutomator(); }.should.throw(/adb is required/);
   });
