@@ -2,10 +2,10 @@
 
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
-import 'mochawait';
-import UiAutomator from '../../index';
+import UiAutomator from '../..';
 import path from 'path';
 import ADB from 'appium-adb';
+
 
 chai.should();
 chai.use(chaiAsPromised);
