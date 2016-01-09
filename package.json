@@ -1,6 +1,6 @@
 {
   "name": "appium-uiautomator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Appium Android UI Automator interface",
   "main": "./build/index.js",
   "scripts": {
