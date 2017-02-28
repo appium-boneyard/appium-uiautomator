@@ -38,7 +38,7 @@ describe('UiAutomator', function () {
     it("should return a subProcess", async function () {
       let conn = new events.EventEmitter();
       conn.start = () => { };
-      let args = ["shell", "uiautomator", "runtest", 'AppiumBootstrap.jar',
+      let args = ["-P", 5037, "shell", "uiautomator", "runtest", 'AppiumBootstrap.jar',
                   "-c", bootstrapClassName];
       S.mocks.adb.expects('push').once()
         .withExactArgs(bootstrapJar,"/data/local/tmp/")
