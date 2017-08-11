@@ -4,10 +4,20 @@
   "description": "Appium Android UI Automator interface",
   "main": "./build/index.js",
   "scripts": {
-    "prepublish": "./node_modules/.bin/gulp prepublish",
-    "test": "./node_modules/.bin/gulp once",
-    "watch": "./node_modules/.bin/gulp"
+    "prepublish": "gulp prepublish",
+    "test": "gulp once",
+    "watch": "gulp watch",
+    "mocha": "mocha",
+    "e2e-test": "gulp e2e-test",
+    "build": "gulp transpile",
+    "coverage": "gulp coveralls",
+    "lint": "gulp eslint",
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
   },
+  "pre-commit": [
+    "precommit-msg",
+    "test"
+  ],
   "author": "appium",
   "license": "Apache-2.0",
   "repository": {
@@ -28,11 +38,19 @@
     "source-map-support": "^0.3.2"
   },
   "devDependencies": {
-    "appium-gulp-plugins": "^1.3.12",
-    "appium-test-support": "0.0.5",
+    "appium-gulp-plugins": "^2.1.5",
+    "appium-test-support": "^0.4.0",
+    "babel-eslint": "^7.1.1",
     "chai": "^3.3.0",
     "chai-as-promised": "^5.1.0",
+    "eslint": "^3.10.2",
+    "eslint-config-appium": "^2.0.1",
+    "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-mocha": "^4.7.0",
+    "eslint-plugin-promise": "^3.3.1",
     "gulp": "^3.8.11",
+    "pre-commit": "^1.2.2",
     "teen_process": "^1.3.1"
   }
 }
