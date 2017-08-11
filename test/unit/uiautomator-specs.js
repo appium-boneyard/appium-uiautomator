@@ -24,7 +24,7 @@ describe('UiAutomator', function () {
   });
 
   it('should throw an error if adb is not passed', () => {
-    () => { new UiAutomator(); }.should.throw(/adb is required/);
+    (() => { new UiAutomator(); }).should.throw(/adb is required/);
   });
   it("parseJarNameFromPath should parse jarName from path and windows path", () => {
     uiAutomator.parseJarNameFromPath(bootstrapJar).should.equal('AppiumBootstrap.jar');
@@ -32,7 +32,7 @@ describe('UiAutomator', function () {
     uiAutomator.parseJarNameFromPath(windowsJarName).should.equal('bar.jar');
   });
   it("parseJarNameFromPath should throw error for invalid path", async () => {
-    () => { uiAutomator.parseJarNameFromPath('foo/bar'); }.should.throw(/Unable to parse/);
+    (() => { uiAutomator.parseJarNameFromPath('foo/bar'); }).should.throw(/Unable to parse/);
   });
   describe("start", withSandbox({mocks: {adb, teen_process}}, (S) => {
     it("should return a subProcess", async function () {
@@ -41,7 +41,7 @@ describe('UiAutomator', function () {
       let args = ["-P", 5037, "shell", "uiautomator", "runtest", 'AppiumBootstrap.jar',
                   "-c", bootstrapClassName];
       S.mocks.adb.expects('push').once()
-        .withExactArgs(bootstrapJar,"/data/local/tmp/")
+        .withExactArgs(bootstrapJar, "/data/local/tmp/")
         .returns('');
       S.mocks.adb.expects('getAdbPath').once()
         .returns('adbPath');
