@@ -32,7 +32,7 @@
   ],
   "homepage": "https://github.com/appium/appium-uiautomator",
   "dependencies": {
-    "appium-adb": "^2.3.0",
+    "appium-adb": "^3.0.0",
     "appium-support": "^2.5.0",
     "babel-runtime": "=5.8.24",
     "source-map-support": "^0.3.2"
