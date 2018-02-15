@@ -12,6 +12,7 @@
     "build": "gulp transpile",
     "coverage": "gulp coveralls",
     "lint": "gulp eslint",
+    "lint:fix": "gulp eslint --fix",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
   },
   "pre-commit": [
@@ -32,19 +33,19 @@
   ],
   "homepage": "https://github.com/appium/appium-uiautomator",
   "dependencies": {
-    "appium-adb": "^5.0.0",
+    "appium-adb": "^6.2.2",
     "appium-support": "^2.5.0",
     "babel-runtime": "=5.8.24",
-    "source-map-support": "^0.3.2"
+    "source-map-support": "^0.5.3"
   },
   "devDependencies": {
-    "appium-gulp-plugins": "^2.1.5",
-    "appium-test-support": "^0.4.0",
+    "appium-gulp-plugins": "^2.2.0",
+    "appium-test-support": "^0.7.2",
     "babel-eslint": "^7.1.1",
-    "chai": "^3.3.0",
-    "chai-as-promised": "^5.1.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
     "eslint": "^3.10.2",
-    "eslint-config-appium": "^2.0.1",
+    "eslint-config-appium": "^2.1.0",
     "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-mocha": "^4.7.0",

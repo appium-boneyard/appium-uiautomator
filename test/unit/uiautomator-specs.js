@@ -19,19 +19,19 @@ describe('UiAutomator', function () {
                              process.env.NO_PRECOMPILE ? '../..' : '../../..');
   const bootstrapJar = path.resolve(rootDir, 'test', 'fixtures', 'AppiumBootstrap.jar'),
         bootstrapClassName = 'io.appium.android.bootstrap.Bootstrap';
-  before(() => {
+  before(function () {
     uiAutomator = new UiAutomator(adb);
   });
 
-  it('should throw an error if adb is not passed', () => {
+  it('should throw an error if adb is not passed', function () {
     (() => { new UiAutomator(); }).should.throw(/adb is required/);
   });
-  it("parseJarNameFromPath should parse jarName from path and windows path", () => {
+  it("parseJarNameFromPath should parse jarName from path and windows path", function () {
     uiAutomator.parseJarNameFromPath(bootstrapJar).should.equal('AppiumBootstrap.jar');
     let windowsJarName = `C:\\\\appium\\bar.jar`;
     uiAutomator.parseJarNameFromPath(windowsJarName).should.equal('bar.jar');
   });
-  it("parseJarNameFromPath should throw error for invalid path", async () => {
+  it("parseJarNameFromPath should throw error for invalid path", async function () {
     (() => { uiAutomator.parseJarNameFromPath('foo/bar'); }).should.throw(/Unable to parse/);
   });
   describe("start", withSandbox({mocks: {adb, teen_process}}, (S) => {
