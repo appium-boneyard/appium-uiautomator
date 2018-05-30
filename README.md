@@ -1,6 +1,8 @@
 appium-uiautomator
 ==========
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/appium/appium-uiautomator.svg)](https://greenkeeper.io/)
+
 Android uiautomator driver used by Appium
 
 ## Installing
