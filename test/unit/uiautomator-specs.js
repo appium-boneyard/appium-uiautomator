@@ -2,6 +2,7 @@
 
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
+import sinon from 'sinon';
 import UiAutomator from '../..';
 import path from 'path';
 import ADB from 'appium-adb';
@@ -50,6 +51,36 @@ describe('UiAutomator', function () {
         .returns(conn);
       await uiAutomator.start(bootstrapJar, bootstrapClassName);
       uiAutomator.state.should.equal('online');
+      S.verify();
+    });
+  }));
+  describe("shutdown", withSandbox({mocks: {adb, teen_process}}, (S) => {
+    it("should not fail if it is already stopped", async function () {
+      let conn = new events.EventEmitter();
+      conn.start = () => { };
+      conn.stop = () => { };
+      let mock = sinon.mock(conn);
+      // It should NOT stop the process when shutting down, because it is already stopped
+      mock.expects("stop").atMost(0);
+      uiAutomator.proc = conn;
+
+      // simulate uiAutomator unexpectedly terminates
+      uiAutomator.changeState('stopped');
+      await uiAutomator.shutdown();
+      uiAutomator.state.should.equal('stopped');
+      S.verify();
+    });
+    it("should stop the uiautomator process", async function () {
+      let conn = new events.EventEmitter();
+      conn.start = () => { };
+      conn.stop = () => { };
+      let mock = sinon.mock(conn);
+      // It should stop the process when shutting down
+      mock.expects("stop").once();
+      uiAutomator.proc = conn;
+      uiAutomator.changeState('online');
+      await uiAutomator.shutdown();
+      uiAutomator.state.should.equal('stopped');
       S.verify();
     });
   }));
